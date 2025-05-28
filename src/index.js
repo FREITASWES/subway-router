@@ -1,34 +1,18 @@
 const express = require('express');
-const app = express();
+const connectDatabase = require("./database/connect");
+const userController = require("./controllers/userController");
 
+const app = express();
 // Porta do servidor
 const PORT = 3000;
 
-//Rota GET que retorna usuários simulados
-app.get('/', (req, res) => {
+app.use(express.json());
 
-    //Array de usuarios
-    const usuarios = [
-        {
-            id: 1,
-            nome: 'Maria Silva',
-            email: 'maria.silva@example.com'
-        },
-        {
-            id: 2,
-            nome: 'João Souza',
-            email: 'joao.souza@example.com'
-        },
-        {
-            id: 3,
-            nome: 'Ana Costa',
-            email: 'ana.costa@example.com'
-        }
-    ];
+//Conecta ao BD
+connectDatabase();
 
-    //Retorna o JSON
-    res.json(usuarios);
-});
+//Rota GET que retorna usuários
+app.get('/users', userController.getAllUsers);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
