@@ -1,6 +1,6 @@
 const express = require('express');
-const connectDatabase = require("./database/connect");
-const userController = require("./controllers/userController");
+const connectDatabase = require('./database/connect');
+const userController = require('./controllers/userController');
 
 const app = express();
 // Porta do servidor
@@ -12,7 +12,7 @@ app.use(express.json());
 connectDatabase();
 
 //Rota GET que retorna usuários
-app.get('/users', userController.getAllUsers);
+app.get('/', userController.getAllUsers);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
