@@ -5,9 +5,9 @@ async function createRole(req, res) {
         const newRole = await roleService.createRole(req.body);
         res.status(201).json(newRole);
     } catch (error) {
-        console.error("Erro no controller:", error);
+        console.error("Controller error:", error);
         res.status(500).json({
-            message: "Erro ao criar role",
+            message: "Error creating role",
             error: error.message || error
         });
     }

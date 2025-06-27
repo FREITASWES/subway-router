@@ -18,5 +18,5 @@ app.get('/', userController.getAllUsers);
 app.post('/', roleController.createRole);
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
