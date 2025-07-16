@@ -7,8 +7,9 @@ async function createRole(req, res) {
     } catch (error) {
         console.error("Controller error:", error);
         res.status(500).json({
-            message: "Error creating role",
-            error: error.message || error
+            message: "Error while creating role",
+            error: "Internal Server Error",
+            code: "ROLE_CREATION_FAILED"
         });
     }
 }
