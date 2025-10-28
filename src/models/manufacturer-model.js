@@ -39,7 +39,6 @@ address: {
 },
 website: {
     type: String,
-    required: true,
     },
 });
 

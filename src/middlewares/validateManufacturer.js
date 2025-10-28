@@ -36,7 +36,6 @@ const manufacturerSchema = yup.object({
     website: yup
     .string()
     .url('Invalid URL format')
-    .required('Website is required')
 });
 
 async function validateManufacturer(req, res, next) {
@@ -46,7 +45,8 @@ async function validateManufacturer(req, res, next) {
     } catch (err) {
         return res.status(400).json({
             error: 'Validation error',
-            messages: err.errors
+            messages: err.errors,
+            code: 'VALIDATION_ERRORR'
         });
     } 
 }

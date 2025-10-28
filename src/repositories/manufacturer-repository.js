@@ -1,5 +1,4 @@
 const Manufacturer = require('../models/manufacturer-model');
-//const Manufacture = require('../models/manufacturer-model');
 
 async function createManufacturer(manufacturerData) {
     try {
