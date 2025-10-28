@@ -46,7 +46,7 @@ async function validateManufacturer(req, res, next) {
         return res.status(400).json({
             error: 'Validation error',
             messages: err.errors,
-            code: 'VALIDATION_ERRORR'
+            code: 'VALIDATION_ERROR'
         });
     } 
 }
