@@ -7,11 +7,15 @@ const manufacturerController = require('./controllers/manufacturer-controller');
 
 const validateManufacturer = require('./middlewares/validateManufacturer');
 
+const usersRoutes = require('./routes/users-routes');
+
 const app = express();
-// Porta do servidor
+
 const PORT = 3000;
 
 app.use(express.json());
+
+app.use('/users', usersRoutes);
 
 //Conecta ao BD
 connectDatabase();
