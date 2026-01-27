@@ -9,8 +9,7 @@ async function getUsers() {
 async function getUserById(id) {
     const user = await userRepository.findUserById(id);
     if(!user) {
-        const error = new Error('USER_NOT_FOUND');
-        throw error;
+        throw new Error('USER_NOT_FOUND');
     }
 
     return user;

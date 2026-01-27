@@ -5,7 +5,7 @@ async function createUser(data) {
         const user = await User.create(data);
         return user;
     } catch (error) {
-        console.error(`Error in userRepository.createUser: ${error.message}`);
+        console.error('Error creating user', error);
         throw error;
     }
 }
@@ -30,7 +30,7 @@ async function findUser(filter = {}, options = {}) {
 
         return {results, total, page, limit};
     } catch (error) {
-        console.error(`Error in userRepository.findUser: ${error.message}`);
+        console.error('Error finding users', error);
         throw error;
     }
 }
@@ -39,7 +39,7 @@ async function findUserById(id) {
     try {
         return await User.findById(id);
     } catch (error) {
-        console.error(`Error in userRepository.findUserById: ${error.message}`);
+        console.error('Error finding user by id', error);
         throw error;
     }
 }
@@ -47,7 +47,7 @@ async function updateUserById(id, update) {
     try {
         return await User.findByIdAndUpdate(id, update, {new: true});
     } catch (error) {
-        console.error(`Error in userRepository.updateUserById: ${error.message}`);
+        console.error('Error updating user by id', error);
         throw error;
     }
 }
@@ -55,7 +55,7 @@ async function patchUserById(id, patch) {
     try {
         return await User.findByIdAndUpdate(id, patch, {new: true});
     } catch (error) {
-        console.error(`Error in userRepository.patchUserById: ${error.message}`);
+        console.error('Error patching user by id', error);
         throw error;
     }
 }
@@ -63,7 +63,7 @@ async function deactivateUser(id) {
     try {
         return await User.findByIdAndUpdate(id, {active: false}, {new: true});
     } catch (error) {
-        console.error(`Error in userRepository.deactivateUser: ${error.message}`);
+        console.error('Error deactivating user', error);
         throw error;
     }
 }
@@ -71,7 +71,7 @@ async function findAllUsers() {
     try {
         return await User.find({});
     } catch (error) {
-        console.error(`Error in userRepository.findAllUsers: ${error.message}`);
+        console.error('Error finding all users', error);
         throw error;
     }
 }
@@ -79,16 +79,16 @@ async function findByEmail(email){
     try {
         return await User.findOne({'contact.email': email});
     } catch (error) {
-        console.error(`Error in userRepository.findByEmail: ${error.message}`);
+        console.error('Error finding user by email', error);
         throw error;
     }
 }
 
 async function deleteUser(id) {
     try {
-        return await User.findByIdAndDelete(id, {active: false}, {new: true});
+        return await User.findByIdAndDelete(id);
     } catch (error) {
-        console.error(`Error in userRepository.deleteUser: ${error.message}`);
+        console.error('Error deleting users', error);
         throw error;
     }
 }
