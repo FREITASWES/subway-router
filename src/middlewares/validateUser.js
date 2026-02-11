@@ -26,11 +26,10 @@ async function validateUser(req, res, next) {
         await userSchema.validate(req.body, {abortEarly: false});
         next();
     } catch (err) {
-        console.error("Erro de validação em validateUser:", err.errors);
+        console.error("Validation error:", err.errors);
         return res.status(400).json({
-            error: 'Validation error',
-            messages: err.errors,
-            code: 'VALIDATION_ERROR'
+            code: 'VALIDATION_ERROR',
+            message: 'Invalid user payload'
         });
     }
 }

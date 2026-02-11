@@ -12,8 +12,8 @@ async function createUser(data) {
 
 async function findUser(filter = {}, options = {}) {
     try {
-        var page = 1;
-        var limit = 10;
+        let page = 1;
+        let limit = 10;
 
         if(options.page && options.page > 0) {
             page = options.page;

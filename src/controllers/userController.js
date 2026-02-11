@@ -27,6 +27,7 @@ async function updateUser(req, res) {
     } catch (error) {
         console.error('Error updating user:', error);
         return res.status(500).json({
+            code: 'UPDATE_USER_FAILED',
             message: 'Error updating user'
         });
     }
@@ -40,6 +41,7 @@ async function getUserById(req, res) {
     } catch (error) {
         console.error('Error getting user by id:', error);
         return res.status(500).json({
+            code: 'GET_USER_BY_ID_FAILED',
             message: 'Error getting user by id'
         });
     }
